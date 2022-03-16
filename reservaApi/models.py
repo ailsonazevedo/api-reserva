@@ -23,8 +23,11 @@ class Reservation(models.Model):
     first_name = models.CharField('Primeiro Nome',max_length=100)
     last_name = models.CharField('Ultimo Nome',max_length=100)
     date_reservation = DateTimeField('Data da Reserva',auto_now_add=True,null=False)
-    date_devoltution = DateTimeField('Data da Devolução',auto_now=False,null=True, blank=True)
+    date_devolution = DateTimeField('Data da Devolução',auto_now=False,null=True, blank=True)
     key = models.ForeignKey(Key,on_delete=models.CASCADE,null=False)
+
+    def __str__(self):
+        return str(self.id)
 
     class Meta:
         ordering = ['date_reservation']
