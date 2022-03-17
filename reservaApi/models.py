@@ -1,3 +1,4 @@
+from unittest.mock import Base
 from django.db import models
 import uuid
 
@@ -17,7 +18,8 @@ class Key (models.Model):
         verbose_name = 'Chave'
         verbose_name_plural = 'Chaves'
 
-class Reservation(models.Model):
+
+class Reservation(Base):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4,editable=False)
     reservation = models.BooleanField('Reservado?',default=True)
     first_name = models.CharField('Primeiro Nome',max_length=100)
