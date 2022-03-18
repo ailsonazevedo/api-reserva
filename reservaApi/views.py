@@ -25,3 +25,4 @@ class ChaveAPIView(APIView):
         serializer = ChaveSerializer(chaves, many=True)
         return Response(serializer.data)
 # Create your views here.
+
