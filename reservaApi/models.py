@@ -1,7 +1,6 @@
 from unittest.mock import Base
 from django.db import models
 import uuid
-
 from django.db.models.fields import DateTimeField
 
 
@@ -19,7 +18,7 @@ class Key (models.Model):
         verbose_name_plural = 'Chaves'
 
 
-class Reservation(Base):
+class Reservation(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4,editable=False)
     reservation = models.BooleanField('Reservado?',default=True)
     first_name = models.CharField('Primeiro Nome',max_length=100)
@@ -29,7 +28,7 @@ class Reservation(Base):
     key = models.ForeignKey(Key,on_delete=models.CASCADE,null=False)
 
     def __str__(self):
-        return str(self.id)
+        return str(self.key)
 
     class Meta:
         ordering = ['date_reservation']

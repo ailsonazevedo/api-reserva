@@ -1,24 +1,27 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
-
 from .models import Reservation, Key
-from .serializers import ReservationSerializer, KeySerializer
+from .serializers import ReservaSerializer, ChaveSerializer
 
-class ReservationAPIView(APIView):
+
+class ReservaAPIView(APIView):
+
     """
-    Api reservas
+    Api de reservas
     """
     def get(self, request):
-        reservations = Reservation.objects.all()
-        serializer = ReservationSerializer(reservations, many=True)
+        reservas = Reservation.objects.all()
+        serializer = ReservaSerializer(reservas, many=True)
         return Response(serializer.data)
 
 
-class KeyAPIView(APIView):
+class ChaveAPIView(APIView):
+
     """
-    Api Chaves
+    Api de chaves
     """
     def get(self, request):
-        keys = Key.objects.all()
-        serializer = KeySerializer(keys, many=True)
+        chaves = Key.objects.all()
+        serializer = ChaveSerializer(chaves, many=True)
         return Response(serializer.data)
+# Create your views here.

@@ -1,15 +1,13 @@
 from rest_framework import serializers
 from .models import Reservation, Key
 
-class ReservationSerializer(serializers.ModelSerializer):
-    
-    class Meta:
-        model = Reservation
-        field = "__all__"
+
+class ReservaSerializer(serializers.ModelSerializer):
+    model = Reservation
+    fields = '__all__'
 
 
-class keySerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Key
-        field = "__all__"
 
+class ChaveSerializer(serializers.ModelSerializer):
+    model = Key
+    fields = '__all__'
